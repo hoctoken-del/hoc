@@ -86,7 +86,7 @@ Place your images in the `images/` folder:
 ## Author
 
 **Hossein Sadeghghol Moghadam**  
-Inventor · Innovator · Developer  
+Inventor · Innovator · Developer   
 GitHub: [@hosein-moghadam](https://github.com/hosein-moghadam)
 
 ---
