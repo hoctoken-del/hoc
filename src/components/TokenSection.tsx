@@ -8,20 +8,26 @@ import { ExternalLink } from 'lucide-react';
 import { HOC_CONFIG } from '@/lib/config';
 
 export default function TokenSection() {
-  const sectionRef = useRef<HTMLDivElement>(null);
+  const sectionRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.querySelectorAll('.reveal').forEach((el) => el.classList.add('visible'));
+            entry.target
+              .querySelectorAll('.reveal')
+              .forEach((el) => el.classList.add('visible'));
           }
         });
       },
       { threshold: 0.1 }
     );
-    if (sectionRef.current) observer.observe(sectionRef.current);
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
     return () => observer.disconnect();
   }, []);
 
@@ -35,7 +41,8 @@ export default function TokenSection() {
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
-          background: 'radial-gradient(ellipse 50% 50% at 70% 50%, oklch(0.42 0.19 265 / 0.07) 0%, transparent 70%)',
+          background:
+            'radial-gradient(ellipse 50% 50% at 70% 50%, oklch(0.42 0.19 265 / 0.07) 0%, transparent 70%)',
         }}
       />
 
@@ -44,8 +51,15 @@ export default function TokenSection() {
         <div className="mb-16 reveal">
           <div className="flex items-center gap-4 mb-5">
             <span className="section-label">07 / Token</span>
-            <div className="h-px flex-1 max-w-12" style={{ background: 'oklch(0.42 0.19 265 / 0.4)' }} />
+
+            <div
+              className="h-px flex-1 max-w-12"
+              style={{
+                background: 'oklch(0.42 0.19 265 / 0.4)',
+              }}
+            />
           </div>
+
           <h2
             className="text-4xl lg:text-5xl font-bold mb-4"
             style={{
@@ -56,6 +70,7 @@ export default function TokenSection() {
           >
             HOC Token
           </h2>
+
           <div className="hoc-divider w-20" />
         </div>
 
@@ -65,12 +80,18 @@ export default function TokenSection() {
           <div className="lg:col-span-5 reveal stagger-1">
             <p
               className="text-lg leading-relaxed mb-8"
-              style={{ color: 'oklch(0.68 0.015 265)', fontFamily: "'Inter', sans-serif", fontWeight: 300 }}
+              style={{
+                color: 'oklch(0.68 0.015 265)',
+                fontFamily: "'Inter', sans-serif",
+                fontWeight: 300,
+              }}
             >
               The HOC Token is the native digital asset of the HOC ecosystem.
-              It has not been officially launched. Contract address and full token
-              details will be announced through official channels when the token is ready.
+              It has not been officially launched. Contract address and full
+              token details will be announced through official channels when
+              the token is ready.
             </p>
+
             {/* Amber disclaimer — reserved for caution */}
             <div
               className="rounded-xl p-5 text-sm leading-relaxed"
@@ -82,9 +103,11 @@ export default function TokenSection() {
                 fontWeight: 300,
               }}
             >
-              <strong style={{ fontWeight: 600 }}>Important:</strong> The HOC Token has not been officially launched.
-              Do not interact with any token claiming to be HOC until the official announcement.
-              This project does not guarantee financial returns or investment profits.
+              <strong style={{ fontWeight: 600 }}>Important:</strong> The HOC
+              Token has not been officially launched. Do not interact with any
+              token claiming to be HOC until the official announcement. This
+              project does not guarantee financial returns or investment
+              profits.
             </div>
           </div>
 
@@ -100,11 +123,15 @@ export default function TokenSection() {
               {/* Panel header */}
               <div
                 className="px-7 py-5 flex items-center gap-5"
-                style={{ borderBottom: '1px solid oklch(1 0 0 / 0.06)' }}
+                style={{
+                  borderBottom: '1px solid oklch(1 0 0 / 0.06)',
+                }}
               >
                 <div
                   className="w-14 h-14 rounded-xl overflow-hidden flex-shrink-0"
-                  style={{ border: '1px solid oklch(0.42 0.19 265 / 0.25)' }}
+                  style={{
+                    border: '1px solid oklch(0.42 0.19 265 / 0.25)',
+                  }}
                 >
                   <img
                     src="/images/hoc-logo.jpg"
@@ -112,13 +139,18 @@ export default function TokenSection() {
                     className="w-full h-full object-cover"
                   />
                 </div>
+
                 <div>
                   <h3
                     className="text-2xl font-bold text-white"
-                    style={{ fontFamily: "'Space Grotesk', sans-serif", letterSpacing: '-0.02em' }}
+                    style={{
+                      fontFamily: "'Space Grotesk', sans-serif",
+                      letterSpacing: '-0.02em',
+                    }}
                   >
                     {HOC_CONFIG.token.name}
                   </h3>
+
                   <div
                     className="text-xs mt-0.5"
                     style={{
@@ -133,7 +165,12 @@ export default function TokenSection() {
               </div>
 
               {/* Contract address row */}
-              <div className="px-7 py-5" style={{ borderBottom: '1px solid oklch(1 0 0 / 0.06)' }}>
+              <div
+                className="px-7 py-5"
+                style={{
+                  borderBottom: '1px solid oklch(1 0 0 / 0.06)',
+                }}
+              >
                 <div
                   className="text-xs mb-3"
                   style={{
@@ -145,6 +182,7 @@ export default function TokenSection() {
                 >
                   Contract Address
                 </div>
+
                 <div
                   className="rounded-xl px-5 py-4"
                   style={{
@@ -161,7 +199,6 @@ export default function TokenSection() {
                     }}
                   >
                     {HOC_CONFIG.token.contractAddress}
-                    {/* ← Replace in client/src/lib/config.ts when available */}
                   </code>
                 </div>
               </div>
@@ -172,7 +209,9 @@ export default function TokenSection() {
                   href={HOC_CONFIG.token.tokenPageUrl}
                   className="btn-sapphire inline-flex items-center gap-2.5 px-6 py-3 rounded-xl text-sm font-semibold w-full justify-center"
                   onClick={(e) => {
-                    if (HOC_CONFIG.token.tokenPageUrl === '#') e.preventDefault();
+                    if (HOC_CONFIG.token.tokenPageUrl === '#') {
+                      e.preventDefault();
+                    }
                   }}
                 >
                   View Token <ExternalLink size={14} />
@@ -184,4 +223,4 @@ export default function TokenSection() {
       </div>
     </section>
   );
-} 
+}
