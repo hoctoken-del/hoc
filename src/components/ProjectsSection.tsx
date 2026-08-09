@@ -81,7 +81,7 @@ export default function ProjectsSection() {
                   style={{ width: '130px', transform: 'rotate(-4deg) translateY(8px)' }}
                 >
                   <img
-                    src="./images/app-screen-1.jpg"
+                    src="/images/app-screen-1.jpg"
                     alt="HOC App Screen 1"
                     className="w-full"
                     style={{ borderRadius: '2rem' }}
@@ -92,7 +92,7 @@ export default function ProjectsSection() {
                   style={{ width: '130px', transform: 'rotate(4deg) translateY(-8px)' }}
                 >
                   <img
-                    src="./images/app-screen-4.jpg"
+                    src="/images/app-screen-4.jpg"
                     alt="HOC App Screen 4"
                     className="w-full"
                     style={{ borderRadius: '2rem' }}
@@ -165,7 +165,7 @@ export default function ProjectsSection() {
               style={{ height: '220px', background: 'oklch(0.09 0.006 265)' }}
             >
               <img
-                src="./images/geo-power-1.jpg"
+                src="/images/geo-power-1.jpg"
                 alt="Geo Power Generation System — Laboratory Report"
                 className="w-full h-full object-cover object-top"
                 style={{ opacity: 0.7 }}
