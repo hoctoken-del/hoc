@@ -21,22 +21,26 @@ const SCREENSHOTS = [
 ];
 
 export default function PrototypeSection() {
-  const sectionRef = useRef<HTMLDivElement>(null);
+  const sectionRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.querySelectorAll('.reveal').forEach((el) => {
-              el.classList.add('visible');
-            });
+            entry.target
+              .querySelectorAll('.reveal')
+              .forEach((el) => el.classList.add('visible'));
           }
         });
       },
       { threshold: 0.05 }
     );
-    if (sectionRef.current) observer.observe(sectionRef.current);
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
     return () => observer.disconnect();
   }, []);
 
@@ -59,19 +63,25 @@ export default function PrototypeSection() {
         {/* Section header */}
         <div className="mb-16 reveal">
           <div className="section-label mb-4">05 / Prototype</div>
+
           <h2
             className="text-4xl lg:text-5xl font-bold text-white mb-6"
             style={{ fontFamily: "'Space Grotesk', sans-serif" }}
           >
             HOC Prototype
           </h2>
+
           <div className="hoc-divider w-24 mb-6" />
+
           <p
             className="text-lg max-w-2xl"
-            style={{ color: 'oklch(0.65 0.015 265)', fontFamily: "'Inter', sans-serif" }}
+            style={{
+              color: 'oklch(0.65 0.015 265)',
+              fontFamily: "'Inter', sans-serif",
+            }}
           >
-            The HOC application prototype is complete and currently in active testing,
-            debugging, and development phases.
+            The HOC application prototype is complete and currently in active
+            testing, debugging, and development phases.
           </p>
         </div>
 
@@ -84,10 +94,13 @@ export default function PrototypeSection() {
                 stage.status === 'completed'
                   ? 'status-completed'
                   : stage.status === 'progress'
-                  ? 'status-progress'
-                  : 'status-upcoming'
+                    ? 'status-progress'
+                    : 'status-upcoming'
               }`}
-              style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '0.8rem' }}
+              style={{
+                fontFamily: "'JetBrains Mono', monospace",
+                fontSize: '0.8rem',
+              }}
             >
               <span
                 className="w-2 h-2 rounded-full"
@@ -96,10 +109,11 @@ export default function PrototypeSection() {
                     stage.status === 'completed'
                       ? 'oklch(0.7 0.15 265)'
                       : stage.status === 'progress'
-                      ? 'oklch(0.85 0.15 75)'
-                      : 'oklch(0.45 0.015 265)',
+                        ? 'oklch(0.85 0.15 75)'
+                        : 'oklch(0.45 0.015 265)',
                 }}
               />
+
               {stage.label}
             </div>
           ))}
@@ -126,6 +140,7 @@ export default function PrototypeSection() {
                   style={{ borderRadius: '2.3rem' }}
                 />
               </div>
+
               <div
                 className="text-center mt-4 text-sm"
                 style={{
@@ -143,4 +158,4 @@ export default function PrototypeSection() {
       </div>
     </section>
   );
-} 
+}
