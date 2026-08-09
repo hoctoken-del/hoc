@@ -241,7 +241,7 @@ export default function AboutSection() {
                 }}
               >
                 <img
-                  src="/images/founder.jpg"
+                  src="./images/founder.jpg"
                   alt={HOC_CONFIG.founder.name}
                   className="w-full h-full object-cover object-top"
                 />
