@@ -107,7 +107,7 @@ export default function TokenSection() {
                   style={{ border: '1px solid oklch(0.42 0.19 265 / 0.25)' }}
                 >
                   <img
-                    src="./images/hoc-logo.jpg"
+                    src="/images/hoc-logo.jpg"
                     alt="HOC Token"
                     className="w-full h-full object-cover"
                   />
@@ -184,4 +184,4 @@ export default function TokenSection() {
       </div>
     </section>
   );
-}
+} 
