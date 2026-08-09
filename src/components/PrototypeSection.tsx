@@ -14,10 +14,10 @@ const DEV_STAGES = [
 ];
 
 const SCREENSHOTS = [
-  { src: './images/app-screen-3.jpg', label: 'Movement Ledger' },
-  { src: './images/app-screen-1.jpg', label: 'Dashboard' },
-  { src: './images/app-screen-2.jpg', label: 'Profile' },
-  { src: './images/app-screen-4.jpg', label: 'Achievements' },
+  { src: '/images/app-screen-3.jpg', label: 'Movement Ledger' },
+  { src: '/images/app-screen-1.jpg', label: 'Dashboard' },
+  { src: '/images/app-screen-2.jpg', label: 'Profile' },
+  { src: '/images/app-screen-4.jpg', label: 'Achievements' },
 ];
 
 export default function PrototypeSection() {
