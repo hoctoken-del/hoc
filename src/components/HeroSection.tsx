@@ -55,7 +55,7 @@ export default function HeroSection() {
                 style={{ border: '1px solid oklch(0.42 0.19 265 / 0.3)' }}
               >
                 <img
-                  src="/images/hoc-logo.jpg"
+                  src="./images/hoc-logo.jpg"
                   alt="HOC"
                   className="w-full h-full object-cover"
                 />
@@ -175,7 +175,7 @@ export default function HeroSection() {
                 }}
               >
                 <img
-                  src="/images/app-screen-3.jpg"
+                  src="./images/app-screen-3.jpg"
                   alt="HOC App — Movement Ledger"
                   className="w-full"
                   style={{ borderRadius: '2.3rem' }}
@@ -194,7 +194,7 @@ export default function HeroSection() {
                 }}
               >
                 <img
-                  src="/images/app-screen-1.jpg"
+                  src="./images/app-screen-1.jpg"
                   alt="HOC App — Dashboard"
                   className="w-full"
                   style={{ borderRadius: '2.3rem' }}
